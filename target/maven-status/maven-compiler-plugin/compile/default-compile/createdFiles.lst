@@ -1,0 +1,5 @@
+org/miage/m2sid/util/HibernateUtil.class
+org/miage/m2sid/chat/Particulier.class
+org/miage/m2sid/chat/Abonne.class
+org/miage/m2sid/chat/Message.class
+org/miage/m2sid/chat/Entreprise.class
