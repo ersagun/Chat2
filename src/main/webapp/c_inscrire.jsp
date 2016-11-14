@@ -13,10 +13,7 @@
 <%@page import="org.miage.m2sid.chat.Particulier" %>
 <%@page import="org.miage.m2sid.chat.Message" %>
 
-<%! Session sessionHibernate;%>
-<%! Transaction tx;%>
 <c:set var="typeAbonne" scope="session" value="${param.typeAbonne}" />
-
 <c:if test="${typeAbonne == 'particulier'}">
     <p>My type is: <c:out value="${typeAbonne}"/><p>
         <jsp:useBean id="particulier" scope="session" class="org.miage.m2sid.chat.Particulier" />
@@ -26,19 +23,29 @@
     <p>My login is: <c:out value="${particulier.login}"/><p>
     <p>My mdp is: <c:out value="${particulier.mdp}"/><p></p>
     <%
-        sessionHibernate = HibernateUtil.currentSession();
-        tx = sessionHibernate.beginTransaction();
-        Particulier p = new Particulier(particulier.getNom(), particulier.getPrenom(), particulier.getMdp(), particulier.getLogin());
-        session.setAttribute("user", p);
-        Message m = new Message("objet", "corps");
-        m.setExpediteur(p);
-        sessionHibernate.save(p);
-        sessionHibernate.save(m);
-        tx.commit();
-        HibernateUtil.closeSession();
-        // HibernateUtil.getSessionFactory().close();
-        response.sendRedirect("c_getMessages.jsp");
+        try {
+            final Session sessionHibernate = HibernateUtil.currentSession();
+            final Transaction transaction = sessionHibernate.beginTransaction();
+            try {
+                session.setAttribute("user", particulier);
+                Message m = new Message("objet", "corps");
+                m.setExpediteur(particulier);
+                sessionHibernate.save(particulier);
+                sessionHibernate.save(m);
+                transaction.commit();
+            } catch (Exception ex) {
+                // Log the exception here
+                transaction.rollback();
+                throw ex;
+            }
+        } finally {
+            HibernateUtil.closeSession();
+            response.sendRedirect("c_getMessages.jsp");
+        }
     %>
+
+
+
     <%-- <jsp:forward page="v_messages.jsp" /> --%>
     <%--
     <c:set var="loginNotExist" scope="page" value="true" />
