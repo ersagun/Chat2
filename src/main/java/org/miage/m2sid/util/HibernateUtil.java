@@ -14,15 +14,13 @@ public class HibernateUtil {
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml");
             System.out.println("Hibernate Configuration loaded");
-            // Création de la SessionFactory � partir de hibernate.cfg.xml
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
         } catch (HibernateException ex) {
 
             System.out.println("Initial SessionFactory creation failed." + ex);
-            throw new RuntimeException("Probl�me de configuration : " + ex.getMessage());
+            throw new RuntimeException("Probleme de configuration : " + ex.getMessage());
         }
     }
 
@@ -33,10 +31,8 @@ public class HibernateUtil {
         Session s = (Session) session.get();
         // Ouvre une nouvelle Session, si ce Thread n'en a aucune
         if (s == null) {
-            System.out.println("YOL" + s);
             s = sessionFactory.openSession();
             session.set(s);
-            System.out.println("YOLOO" + s);
         }
         return s;
     }

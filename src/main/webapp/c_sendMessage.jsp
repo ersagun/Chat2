@@ -4,8 +4,8 @@
     Author     : Ersagun
 --%>
 
-<%@page import="org.miage.m2sid.chat.Abonne"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="org.miage.m2sid.chat.Abonne"%>
 <%@page import="org.miage.m2sid.util.HibernateUtil"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="java.util.List" %>

@@ -39,7 +39,7 @@
 
 
 
-                    <form role="form" method="post" action="c_inscrire.jsp" id="entrepriseForm">  
+                    <form hidden role="form" method="post" action="c_inscrire.jsp" id="entrepriseForm">  
                         <div class="form-group">
 
                             <input type="hidden" class="form-control" id="typeAbonne" name="typeAbonne" value="entreprise" />
@@ -74,7 +74,7 @@
 
 
 
-                    <form role="form" method="post" action="c_inscrire.jsp" id="particulierForm">  
+                    <form hidden role="form" method="post" action="c_inscrire.jsp" id="particulierForm">  
                         <div class="form-group">
 
                             <input type="hidden" class="form-control" id="typeAbonne" name="typeAbonne" value="particulier" />

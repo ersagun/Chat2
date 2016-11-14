@@ -1,56 +1,37 @@
-<%-- 
-    Document   : v_login
-    Created on : Oct 4, 2016, 2:28:58 PM
-    Author     : Ersagun
---%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <title>Connect</title>
-        <link type="text/css" rel="stylesheet" href="form.css" />
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body style="text-align: center;">
+
+        <div class="container">
+            <h1>Les Abonnes</h1>
+            <ul class="list-group">
+                <c:forEach var="abonne" items="${lesAbonnes}">
+                    <c:if test="${abonne.class.name==\"org.miage.m2sid.chat.Entreprise\"}">
+                        <li class="list-group-item" >Entreprise : <c:out value="${abonne.raisonSociale}"/></li>
+                        </c:if>
+
+                    <c:if test="${abonne.class.name==\"org.miage.m2sid.chat.Particulier\"}">
+                        <li class="list-group-item">Particulier : <c:out value="${abonne.prenom}"/> <c:out value="${abonne.nom}"/> </li>
+                        </c:if>
 
 
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>
-                        CHAT by Ersagun Yalcintepe
-                    </h3>
-                    <h3>
-                        Se connecter
-                    </h3>
-                    <form role="form" method="post" action="c_valideLogin.jsp">
-                        <div class="form-group">
-
-                            <label for="inputLogin">
-                                login
-                            </label>
-                            <input type="text" class="form-control" id="inputLogin" />
-                        </div>
-                        <div class="form-group">
-
-                            <label for="inputMdp">
-                                Mot de passe
-                            </label>
-                            <input type="password" class="form-control" id="inputMdp" />
-                        </div>
-
-                        <button type="submit" value="connect"  class="btn btn-default">
-                            Se connecter
-                        </button>
-                    </form> 
-                </div>
+                </c:forEach>            
+            </ul>
+            <a class="btn btn-default" href="index.jsp" style="margin-bottom:2%;">Accueil</a>
+            <div class="container" style="text-align:center">
+                <p class="text-muted">Copyright by Ersagun Yalcintepe 2016-2017</p>
             </div>
-        </div>
-        <div class="container" style="text-align:center">
-            <p class="text-muted">Copyright by Ersagun Yalcintepe 2016-2017</p>
         </div>
     </body>
 </html>
+

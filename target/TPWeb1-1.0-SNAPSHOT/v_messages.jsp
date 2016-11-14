@@ -16,13 +16,12 @@
 <%@page import="org.hibernate.Transaction" %>
 <%@page import="org.miage.m2sid.chat.Message" %>
 
-<%! Session sessionHibernate;%>
-<%! Transaction tx;%>
-<%!  ArrayList<Message> lesMessages;%>
-
+<c:if test="${sessionScope.user == null}">
+    <jsp:forward page="v_login.jsp"></jsp:forward>
+</c:if>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
         <title>Chat</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -32,7 +31,7 @@
             <h1 style="text-align: center" > Bonjour <%=((Particulier) session.getAttribute("user")).getNom() + " " + ((Particulier) session.getAttribute("user")).getPrenom()%></h1>
         </c:if>
         <c:if test="${sessionScope.typeAbonne == 'entreprise'}">
-            <h1 style="text-align: center" > Bonjour <%=((Entreprise) session.getAttribute("user")).getRaisonSociale()%></h1>
+            <h1 style="text-align: center" > Bonjour Entreprise <%=((Entreprise) session.getAttribute("user")).getRaisonSociale()%></h1>
         </c:if>
         <div class="chat_window">
             <div class="top_menu">
@@ -59,7 +58,7 @@
 
             <div class="bottom_wrapper clearfix">
 
-                <form role="form" method="post" action="c_sendMessage.jsp" id="messageForm"> 
+                <form  role="form" method="post" action="c_sendMessage.jsp" id="messageForm"> 
                     <div class="form-group">
                         <!--  <div class="message_input_wrapper" style="width:30%; float:left;" > -->
                         <input class="form-control" style="height:100%;width:30%; float:left; margin-right:2%;" type="text" id="corps" name="corps" placeholder="Ecrire l'objet du message..." /> 

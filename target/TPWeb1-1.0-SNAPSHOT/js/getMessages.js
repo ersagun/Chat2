@@ -17,6 +17,6 @@ $(document).ready(function () {
           
              });
     var scr = $('#listeDeMessage')[0].scrollHeight;
-$('#listeDeMessage').animate({scrollTop: scr},1000);
+$('#listeDeMessage').animate({scrollTop: scr},10);
     }, 1000);
 });

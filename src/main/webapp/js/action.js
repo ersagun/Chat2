@@ -10,7 +10,6 @@ $(document).ready(function(){
     
     $("input[name='typeAbonne']").click(function() {     
         var val = $(this).attr("id");
-        console.log(val);
         if(val =="particulier"){
             $("#entrepriseForm").hide();
             $("#particulierForm").show();
