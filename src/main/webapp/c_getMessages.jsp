@@ -11,21 +11,24 @@
 <%@page import="java.util.List" %>
 <%@page import="org.hibernate.Transaction" %>
 <%@page import="org.miage.m2sid.chat.Message" %>
-
-<%! Session sessionHibernate;%>
-<%! Transaction tx;%>
-
 <%
-    sessionHibernate = HibernateUtil.currentSession();
-    tx = sessionHibernate.beginTransaction();
-    List messages = sessionHibernate.createQuery("from Message").list();
+    try {
+        final Session sessionHibernate = HibernateUtil.currentSession();
+        final Transaction transaction = sessionHibernate.beginTransaction();
+        try {
+            // The real work is here
+            List messages = sessionHibernate.createQuery("from Message").list();
+            request.setAttribute("lesMessages", messages);
+            transaction.commit();
+        } catch (Exception ex) {
+            // Log the exception here
+            transaction.rollback();
+            throw ex;
+        }
+    } finally {
+        HibernateUtil.closeSession();
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/v_messages.jsp");
+        rd.forward(request, response);
+    }
     
-    /*
-    for (int i = 0; i < messages.size(); i++) {
-        System.out.println(((Message) messages.get(i)).getCorps());
-    }*/
-    request.setAttribute("lesMessages", messages);
-    RequestDispatcher rd = getServletContext().getRequestDispatcher("/v_messages.jsp");
-    rd.forward(request, response);
-    HibernateUtil.closeSession();
 %>

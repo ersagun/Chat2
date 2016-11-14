@@ -4,6 +4,7 @@
     Author     : Ersagun
 --%>
 
+<%@page import="org.miage.m2sid.chat.Abonne"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page pageEncoding="UTF-8" %>
@@ -31,7 +32,7 @@
             <h1 style="text-align: center" > Bonjour <%=((Particulier) session.getAttribute("user")).getNom() + " " + ((Particulier) session.getAttribute("user")).getPrenom()%></h1>
         </c:if>
         <c:if test="${sessionScope.typeAbonne == 'entreprise'}">
-            <h1 style="text-align: center" > Bonjour <%=((Particulier) session.getAttribute("user")).getNom() + " " + ((Particulier) session.getAttribute("user")).getPrenom()%></h1>
+            <h1 style="text-align: center" > Bonjour <%=((Entreprise) session.getAttribute("user")).getRaisonSociale()%></h1>
         </c:if>
         <div class="chat_window">
             <div class="top_menu">
@@ -45,26 +46,36 @@
                 </div>
                 <div class="title">Chat by Ersagun</div>
             </div>              
-                <ul class="messages">
+            <ul class="messages" id="listeDeMessage">
                 <c:forEach var="message" items="${lesMessages}">
                     <li class="message left appeared">
                         <div class="avatar"></div>
                         <div class="text_wrapper">
-                            <div class="text"><c:out value="${message.corps}"/></div>
+                            <div class="text"><c:out value="${message.expediteur.login}"/> - Objet : <c:out value="${message.objet}"/>, Corps: <c:out value="${message.corps}"/></div>
                         </div>
                     </li>
                 </c:forEach>            
             </ul>
+
             <div class="bottom_wrapper clearfix">
-                <div class="message_input_wrapper">
-                    <input class="message_input" placeholder="Type your message here..." /></div>
-                <div class="send_message"><div class="icon"></div>
-                    <div class="text">Send</div>
-                </div>
+
+                <form role="form" method="post" action="c_sendMessage.jsp" id="messageForm"> 
+                    <div class="form-group">
+                        <!--  <div class="message_input_wrapper" style="width:30%; float:left;" > -->
+                        <input class="form-control" style="height:100%;width:30%; float:left; margin-right:2%;" type="text" id="corps" name="corps" placeholder="Ecrire l'objet du message..." /> 
+                        <!--  </div> -->
+                        <!--  <div class="message_input_wrapper" style="width:50%; float:left;" > -->
+                        <input class="form-control" style="height:100%;width:50%; float:left; margin-right:2%;" type="text" id="objet" name="objet" placeholder="Ecrire le corps du message..." />
+                        <!--  </div> -->
+                        <!--  <div class="send_message"><div class="icon"></div> -->
+                        <button type="submit" value="send" class="btn btn-success" >Envoyer</button>
+                        <!-- </div> -->
+                    </div>
+                </form>
             </div>
         </div>
-
         <script src="js/jquery.min.js"></script>
         <script src="js/chat.js"></script>
+        <script src="js/getMessages.js"></script>
     </body>
 </html>

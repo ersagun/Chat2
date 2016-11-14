@@ -1,3 +1,5 @@
+org/miage/m2sid/chat/MessageJSON.class
+org/miage/m2sid/chat/MessageJSONSerializer.class
 org/miage/m2sid/util/HibernateUtil.class
 org/miage/m2sid/chat/Particulier.class
 org/miage/m2sid/chat/Abonne.class

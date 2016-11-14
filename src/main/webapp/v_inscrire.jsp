@@ -110,8 +110,8 @@
 
                         </div>
 
-                        <button type="submit" value="connect"  class="btn btn-default">
-                            S'inscrire
+                        <button type="submit" value="connect"  class="btn btn-default"
+>                            S'inscrire
                         </button>
                     </form> 
                 </div>
