@@ -26,14 +26,17 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
+    <body style="text-align:center">
         <c:if test="${sessionScope.typeAbonne == 'particulier'}">
             <h1 style="text-align: center" > Bonjour <%=((Particulier) session.getAttribute("user")).getNom() + " " + ((Particulier) session.getAttribute("user")).getPrenom()%></h1>
         </c:if>
         <c:if test="${sessionScope.typeAbonne == 'entreprise'}">
             <h1 style="text-align: center" > Bonjour Entreprise <%=((Entreprise) session.getAttribute("user")).getRaisonSociale()%></h1>
         </c:if>
-        <div class="chat_window">
+                    <a  class="btn btn-primary" href="index.jsp">Accueil</a>
+                  <a  class="btn btn-primary" href="c_getAbonnes.jsp">Afficher les abonnes</a>
+                  <a  class="btn btn-primary" href="c_deconnecter.jsp">Se déconnecter</a>
+        <div style="margin-top:2%;" class="chat_window">
             <div class="top_menu">
                 <div class="buttons">
                     <div class="button close">
@@ -58,13 +61,13 @@
 
             <div class="bottom_wrapper clearfix">
 
-                <form  role="form" method="post" action="c_sendMessage.jsp" id="messageForm"> 
+                <form  role="form" method="post" action="c_sendMessage.jsp" id="messageForm" onsubmit="return validateForm()"> 
                     <div class="form-group">
                         <!--  <div class="message_input_wrapper" style="width:30%; float:left;" > -->
-                        <input class="form-control" style="height:100%;width:30%; float:left; margin-right:2%;" type="text" id="corps" name="corps" placeholder="Ecrire l'objet du message..." /> 
+                        <input class="form-control" style="height:100%;width:30%; float:left; margin-right:2%;" type="text" id="objet" name="objet" placeholder="Ecrire l'objet du message..." />
                         <!--  </div> -->
                         <!--  <div class="message_input_wrapper" style="width:50%; float:left;" > -->
-                        <input class="form-control" style="height:100%;width:50%; float:left; margin-right:2%;" type="text" id="objet" name="objet" placeholder="Ecrire le corps du message..." />
+                        <input class="form-control" style="height:100%;width:50%; float:left; margin-right:2%;" type="text" id="corps" name="corps" placeholder="Ecrire le corps du message..." /> 
                         <!--  </div> -->
                         <!--  <div class="send_message"><div class="icon"></div> -->
                         <button type="submit" value="send" class="btn btn-success" >Envoyer</button>
@@ -74,7 +77,9 @@
             </div>
         </div>
         <script src="js/jquery.min.js"></script>
+        <script src="js/notify.min.js"></script>
         <script src="js/chat.js"></script>
         <script src="js/getMessages.js"></script>
     </body>
+
 </html>

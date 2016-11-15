@@ -24,13 +24,13 @@
                     <h3>
                         Se connecter
                     </h3>
-                    <form role="form" method="post" action="c_connecter.jsp">
+                    <form role="form" method="post" action="c_connecter.jsp" id="connecterForm" onsubmit="return validateConnecterForm()">
                         <div class="form-group">
                             <div class="radio">
-                                <label><input type="radio" style="clear:both;" name="typeAbonne" id="typeAbonne" value="particulier" class="radioButtton">Particulier</label>
+                                <label><input type="radio" style="clear:both;" name="typeAbonne"  id="part" value="particulier" class="radioButtton">Particulier</label>
                             </div>
                             <div class="radio">
-                                <label><input type="radio" style="clear:both;" name="typeAbonne" id="typeAbonne" value="entreprise" class="radioButtton">Entreprise</label>
+                                <label><input type="radio" style="clear:both;" name="typeAbonne" id="ent" value="entreprise" class="radioButtton">Entreprise</label>
                             </div>	 
 
                             <label for="inputLogin">
@@ -46,7 +46,7 @@
                             <input type="password" class="form-control" id="mdp" disabled="disabled" name="mdp" />
                         </div>
 
-                        <button type="submit" value="connect" disabled="disabled" id="connectButton" class="btn btn-default">
+                        <button type="submit" value="connect" id="connectButton" disabled="disabled" class="btn btn-default">
                             Se connecter
                         </button>
                         <a class="btn btn-default" href="v_inscrire.jsp">S'inscrire</a>
@@ -60,5 +60,7 @@
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/login.js"></script>
+        <script src="js/notify.min.js"></script>
+        <script src="js/action.js"></script>
     </body>
 </html>

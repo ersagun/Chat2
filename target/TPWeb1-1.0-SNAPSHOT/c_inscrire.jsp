@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="org.hibernate.Query"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="org.miage.m2sid.util.HibernateUtil"%>
 <%@page import="org.hibernate.Session"%>
@@ -15,33 +16,38 @@
 
 <c:set var="typeAbonne" scope="session" value="${param.typeAbonne}" />
 <c:if test="${typeAbonne == 'particulier'}">
-    <p>My type is: <c:out value="${typeAbonne}"/><p>
-        <jsp:useBean id="particulier" scope="session" class="org.miage.m2sid.chat.Particulier" />
-        <jsp:setProperty name="particulier" property="*" />
-    <p>My nom is: <c:out value="${particulier.nom}"/><p>
-    <p>My prenom is: <c:out value="${particulier.prenom}"/><p>
-    <p>My login is: <c:out value="${particulier.login}"/><p>
-    <p>My mdp is: <c:out value="${particulier.mdp}"/><p></p>
+    <jsp:useBean id="particulier" scope="session" class="org.miage.m2sid.chat.Particulier" />
+    <jsp:setProperty name="particulier" property="*" />
     <%
-        try {
+
             final Session sessionHibernate = HibernateUtil.currentSession();
             final Transaction transaction = sessionHibernate.beginTransaction();
-            try {
-                session.setAttribute("user", particulier);
-                Message m = new Message("objet", "corps");
-                m.setExpediteur(particulier);
-                sessionHibernate.save(particulier);
-                sessionHibernate.save(m);
+            String hql = "FROM Abonne A WHERE A.login = :a_login";
+            Query query = sessionHibernate.createQuery(hql);
+            query.setParameter("a_login", particulier.getLogin());
+            List utilisateurExistant = query.list();
+            System.out.println(utilisateurExistant.size());
+            if (utilisateurExistant.size() == 0) {
+                try {
+                    session.setAttribute("user", particulier);
+                    sessionHibernate.save(particulier);
+                    transaction.commit();
+                    HibernateUtil.closeSession();
+                    response.sendRedirect("c_getMessages.jsp");
+                } catch (Exception ex) {
+                    // Log the exception here
+                    transaction.rollback();
+                    throw ex;
+                }
+            } else {
                 transaction.commit();
-            } catch (Exception ex) {
-                // Log the exception here
-                transaction.rollback();
-                throw ex;
+                HibernateUtil.closeSession();
+                response.sendRedirect("v_login.jsp");
+                
             }
-        } finally {
-            HibernateUtil.closeSession();
-            response.sendRedirect("c_getMessages.jsp");
-        }
+        
+
+    
     %>
 
 
@@ -68,7 +74,6 @@
 
 
 <c:if test="${typeAbonne == 'entreprise'}">
-    <% System.out.println("HAMBOUDLAH");%>
     <p>My type is: <c:out value="${typeAbonne}"/><p>
         <jsp:useBean id="entreprise" scope="session" class="org.miage.m2sid.chat.Entreprise" />
         <jsp:setProperty name="entreprise" property="*" />

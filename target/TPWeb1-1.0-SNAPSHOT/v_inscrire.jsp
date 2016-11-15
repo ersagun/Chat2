@@ -14,7 +14,7 @@
         <link type="text/css" rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
-    <body>
+    <body style="text-align:center">
 
 
 
@@ -39,7 +39,7 @@
 
 
 
-                    <form hidden role="form" method="post" action="c_inscrire.jsp" id="entrepriseForm">  
+                    <form hidden role="form" method="post" action="c_inscrire.jsp" id="entrepriseForm" onsubmit="return validateEntrepriseForm()">  
                         <div class="form-group">
 
                             <input type="hidden" class="form-control" id="typeAbonne" name="typeAbonne" value="entreprise" />
@@ -67,14 +67,14 @@
 
                         </div>
 
-                        <button type="submit" value="connect"  class="btn btn-default">
+                        <button type="submit" value="connect" style="margin-bottom:2%"  class="btn btn-default">
                             S'inscrire
                         </button>
                     </form> 
 
 
 
-                    <form hidden role="form" method="post" action="c_inscrire.jsp" id="particulierForm">  
+                    <form hidden role="form" method="post" action="c_inscrire.jsp" id="particulierForm" onsubmit="return validateParticulierForm()">  
                         <div class="form-group">
 
                             <input type="hidden" class="form-control" id="typeAbonne" name="typeAbonne" value="particulier" />
@@ -110,17 +110,19 @@
 
                         </div>
 
-                        <button type="submit" value="connect"  class="btn btn-default"
+                        <button style="margin-bottom:2%" type="submit" value="connect"  class="btn btn-default"
 >                            S'inscrire
                         </button>
                     </form> 
                 </div>
             </div>
-        </div>
+        </div>  <a class="btn btn-default" href="index.jsp" style="margin-bottom:2%">Accueil</a>
         <div class="container" style="text-align:center">
             <p class="text-muted">Copyright by Ersagun Yalcintepe 2016-2017</p>
         </div>
         <script src="js/jquery.min.js"></script>
+         <script src="js/notify.min.js"></script>
         <script src="js/action.js"></script>
+        <script src="js/inscription.js"></script>
     </body>
 </html>

@@ -33,7 +33,8 @@
                             <c:if test="${sessionScope.user != null}">
                                 <li style="margin:2%"><a  class="btn btn-primary" href="c_getMessages.jsp">Aller au chat</a></li>
                                 <li style="margin:2%"><a  class="btn btn-primary" href="c_getAbonnes.jsp">Afficher les abonnes</a></li>
-                                </c:if>
+                              <li style="margin:2%"><a  class="btn btn-primary" href="c_deconnecter.jsp">Se déconnecter</a></li>    
+                            </c:if>
 
                             <c:if test="${sessionScope.user == null}">
                                 <li style="margin:2%"><a  class="btn btn-primary" href="v_login.jsp">Se connecter</a></li>
