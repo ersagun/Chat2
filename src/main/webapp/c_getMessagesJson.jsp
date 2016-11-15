@@ -5,8 +5,8 @@
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page import="org.miage.m2sid.chat.MessageJSONSerializer"%>
-<%@page import="org.miage.m2sid.chat.MessageJSON"%>
+<%@page import="org.miage.m2sid.util.MessageJSON"%>
+<%@page import="org.miage.m2sid.util.MessageJSONSerializer"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.google.gson.GsonBuilder"%>
 <%@page import="com.google.gson.Gson"%>

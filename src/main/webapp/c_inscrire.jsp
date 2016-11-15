@@ -5,8 +5,8 @@
 --%>
 
 
-<%@page import="org.hibernate.Query"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="org.hibernate.Query"%>
 <%@page import="org.miage.m2sid.util.HibernateUtil"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="java.util.List" %>
