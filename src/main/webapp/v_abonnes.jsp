@@ -16,11 +16,11 @@
             <h1>Les Abonnes</h1>
             <ul class="list-group">
                 <c:forEach var="abonne" items="${lesAbonnes}">
-                    <c:if test="${abonne.class.name==\"org.miage.m2sid.chat.Entreprise\"}">
+                    <c:if test="${abonne['class'].simpleName eq 'Entreprise'}">
                         <li class="list-group-item" >Entreprise : <c:out value="${abonne.raisonSociale}"/></li>
                         </c:if>
 
-                    <c:if test="${abonne.class.name==\"org.miage.m2sid.chat.Particulier\"}">
+                    <c:if test="${abonne['class'].simpleName eq 'Particulier'}">
                         <li class="list-group-item">Particulier : <c:out value="${abonne.prenom}"/> <c:out value="${abonne.nom}"/> </li>
                         </c:if>
 
