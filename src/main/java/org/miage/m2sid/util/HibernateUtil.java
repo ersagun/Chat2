@@ -8,7 +8,6 @@ package org.miage.m2sid.util;
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.*;
-import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
 

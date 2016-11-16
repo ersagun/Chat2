@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.miage.m2sid.util;
-
 /**
  *
  * @author Ersagun
  */
+
+package org.miage.m2sid.util;
+
 public class MessageJSON {
     private String login;
     private String objet;
