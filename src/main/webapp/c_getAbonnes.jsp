@@ -27,6 +27,5 @@
         HibernateUtil.closeSession();
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/v_abonnes.jsp");
         rd.forward(request, response);
-    }
-    
+    }   
 %>

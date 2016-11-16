@@ -29,6 +29,5 @@
         HibernateUtil.closeSession();
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/v_messages.jsp");
         rd.forward(request, response);
-    }
-    
+    } 
 %>

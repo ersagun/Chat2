@@ -19,7 +19,7 @@ public class HibernateUtil {
 
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
-            applySettings(configuration.getProperties());
+                    applySettings(configuration.getProperties());
             sessionFactory = configuration.buildSessionFactory(builder.build());
 
         } catch (HibernateException ex) {

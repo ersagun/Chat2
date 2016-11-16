@@ -34,8 +34,7 @@
             }
             String json=gson.toJson(corps);
             //System.out.println(json);
-            response.getWriter().write(json);
-            
+            response.getWriter().write(json);       
             transaction.commit();
         } catch (Exception ex) {
             // Log the exception here
@@ -46,6 +45,5 @@
         HibernateUtil.closeSession();
         //RequestDispatcher rd = getServletContext().getRequestDispatcher("/v_messages.jsp");
         //rd.forward(request, response);
-    }
-    
+    }   
 %>

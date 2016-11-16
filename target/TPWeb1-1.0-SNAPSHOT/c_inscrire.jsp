@@ -17,7 +17,6 @@
     <jsp:useBean id="particulier" scope="session" class="org.miage.m2sid.chat.Particulier" />
     <jsp:setProperty name="particulier" property="*" />
     <%
-
             final Session sessionHibernate = HibernateUtil.currentSession();
             final Transaction transaction = sessionHibernate.beginTransaction();
             String hql = "FROM Abonne A WHERE A.login = :a_login";
