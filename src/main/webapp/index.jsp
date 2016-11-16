@@ -17,11 +17,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3>
-                        CHAT TP 1, Conception des applications web
+                        Conception des applications web
                     </h3>
                     <div class="jumbotron well">
                         <h2>
-                            Bienvenue à l'application de Chat réalisé en JEE : JSP+ Hibernate
+                            Bienvenue à l'application de Chat réalisé en JEE
                         </h2>
                         <p>
                             Pour pouvoir utiliser l'application vous avez besoin de vous connecter. Si vous avez déjà un compte, veuillez cliquer sur Se connecter, sinon pour créer un compte veuillez cliquer sur S'inscrire.

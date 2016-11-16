@@ -33,9 +33,9 @@
         <c:if test="${sessionScope.typeAbonne == 'entreprise'}">
             <h1 style="text-align: center" > Bonjour Entreprise <%=((Entreprise) session.getAttribute("user")).getRaisonSociale()%></h1>
         </c:if>
-                    <a  class="btn btn-primary" href="index.jsp">Accueil</a>
-                  <a  class="btn btn-primary" href="c_getAbonnes.jsp">Afficher les abonnes</a>
-                  <a  class="btn btn-primary" href="c_deconnecter.jsp">Se déconnecter</a>
+        <a  class="btn btn-primary" href="index.jsp">Accueil</a>
+        <a  class="btn btn-primary" href="c_getAbonnes.jsp">Afficher les abonnes</a>
+        <a  class="btn btn-primary" href="c_deconnecter.jsp">Se déconnecter</a>
         <div style="margin-top:2%;" class="chat_window">
             <div class="top_menu">
                 <div class="buttons">
@@ -58,7 +58,6 @@
                     </li>
                 </c:forEach>            
             </ul>
-
             <div class="bottom_wrapper clearfix">
 
                 <form  role="form" method="post" action="c_sendMessage.jsp" id="messageForm" onsubmit="return validateForm()"> 
@@ -81,5 +80,4 @@
         <script src="js/chat.js"></script>
         <script src="js/getMessages.js"></script>
     </body>
-
 </html>

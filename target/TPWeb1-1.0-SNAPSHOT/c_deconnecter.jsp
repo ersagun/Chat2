@@ -9,7 +9,6 @@
 <c:if test="${sessionScope.user == null}">
     <jsp:forward page="v_login.jsp"></jsp:forward>
 </c:if>
-
 <c:remove var="user" scope="session" />
 <c:remove var="typeAbonne" scope="session" />
 <jsp:forward page="index.jsp"></jsp:forward>

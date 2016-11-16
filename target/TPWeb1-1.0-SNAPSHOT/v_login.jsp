@@ -12,9 +12,6 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
     <body>
-
-
-
         <div class="container-fluid" style="text-align: center">
             <div class="row">
                 <div class="col-md-12">

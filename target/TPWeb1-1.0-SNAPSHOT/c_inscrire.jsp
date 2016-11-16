@@ -40,16 +40,9 @@
             } else {
                 transaction.commit();
                 HibernateUtil.closeSession();
-                response.sendRedirect("v_login.jsp");
-                
-            }
-        
-
-    
+                response.sendRedirect("v_login.jsp");   
+            }     
     %>
-
-
-
     <%-- <jsp:forward page="v_messages.jsp" /> --%>
     <%--
     <c:set var="loginNotExist" scope="page" value="true" />
@@ -66,14 +59,10 @@
             <jsp:forward page="v_inscrire.jsp" />      
         </c:otherwise>
     </c:choose>
-
     --%>
 </c:if>
-
-
 <c:if test="${typeAbonne == 'entreprise'}">
     <p>My type is: <c:out value="${typeAbonne}"/><p>
         <jsp:useBean id="entreprise" scope="session" class="org.miage.m2sid.chat.Entreprise" />
         <jsp:setProperty name="entreprise" property="*" />
     </c:if>
-

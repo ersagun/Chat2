@@ -15,9 +15,6 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
     <body style="text-align:center">
-
-
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -34,11 +31,6 @@
                     <div class="radio">
                         <label><input type="radio" style="clear:both;" name="typeAbonne" id="entreprise">Entreprise</label>
                     </div>
-
-
-
-
-
                     <form hidden role="form" method="post" action="c_inscrire.jsp" id="entrepriseForm" onsubmit="return validateEntrepriseForm()">  
                         <div class="form-group">
 
@@ -63,17 +55,12 @@
                                 Confirmer mot de passe
                             </label>
                             <input type="password" class="form-control" id="mdp2" name="mdp2" />
-
-
                         </div>
 
                         <button type="submit" value="connect" style="margin-bottom:2%"  class="btn btn-default">
                             S'inscrire
                         </button>
                     </form> 
-
-
-
                     <form hidden role="form" method="post" action="c_inscrire.jsp" id="particulierForm" onsubmit="return validateParticulierForm()">  
                         <div class="form-group">
 
@@ -89,14 +76,10 @@
                                 Nom
                             </label>
                             <input type="text" class="form-control" id="nom" name="nom" />
-
-
                             <label for="inputLogin">
                                 Prenom
                             </label>
                             <input type="text" class="form-control" id="prenom" name="prenom" />
-
-
                             <label for="inputMdp">
                                 Mot de passe
                             </label>
@@ -106,12 +89,9 @@
                                 Confirmer mot de passe
                             </label>
                             <input type="password" class="form-control" id="mdp2" name="mdp2" />
-
-
                         </div>
-
                         <button style="margin-bottom:2%" type="submit" value="connect"  class="btn btn-default"
->                            S'inscrire
+                                >                            S'inscrire
                         </button>
                     </form> 
                 </div>
@@ -121,7 +101,7 @@
             <p class="text-muted">Copyright by Ersagun Yalcintepe 2016-2017</p>
         </div>
         <script src="js/jquery.min.js"></script>
-         <script src="js/notify.min.js"></script>
+        <script src="js/notify.min.js"></script>
         <script src="js/action.js"></script>
         <script src="js/inscription.js"></script>
     </body>

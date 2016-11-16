@@ -11,7 +11,6 @@
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body style="text-align: center;">
-
         <div class="container">
             <h1>Les Abonnes</h1>
             <ul class="list-group">
@@ -23,8 +22,6 @@
                     <c:if test="${abonne['class'].simpleName eq 'Particulier'}">
                         <li class="list-group-item">Particulier : <c:out value="${abonne.prenom}"/> <c:out value="${abonne.nom}"/> </li>
                         </c:if>
-
-
                 </c:forEach>            
             </ul>
             <a class="btn btn-default" href="index.jsp" style="margin-bottom:2%;">Accueil</a>
