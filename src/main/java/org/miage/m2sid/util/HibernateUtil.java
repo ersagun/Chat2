@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package org.miage.m2sid.util;
+
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.*;
@@ -15,11 +16,11 @@ public class HibernateUtil {
 
     static {
         try {
-            Configuration configuration = new Configuration();
-            configuration.configure("hibernate.cfg.xml");
-            System.out.println("Hibernate Configuration loaded");
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+
+            Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+            applySettings(configuration.getProperties());
+            sessionFactory = configuration.buildSessionFactory(builder.build());
 
         } catch (HibernateException ex) {
 
@@ -31,7 +32,7 @@ public class HibernateUtil {
     public static final ThreadLocal session = new ThreadLocal();
 
     public static Session currentSession() throws HibernateException {
-        
+
         Session s = (Session) session.get();
         // Ouvre une nouvelle Session, si ce Thread n'en a aucune
         if (s == null) {
@@ -53,4 +54,3 @@ public class HibernateUtil {
         return sessionFactory;
     }
 }
-
