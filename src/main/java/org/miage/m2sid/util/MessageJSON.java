@@ -35,6 +35,5 @@ public class MessageJSON {
     public void setCorps(String c){
         this.corps=c;
     }
-    
-    
+       
 }
