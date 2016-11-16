@@ -2,6 +2,7 @@
  * @author Ersagun Yalcintepe
  *
  */
+
 package org.miage.m2sid.chat;
 
 public class Message {
