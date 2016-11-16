@@ -9,6 +9,7 @@
 <%@page import="java.util.List" %>
 <%@page import="org.hibernate.Transaction" %>
 <%@page import="org.miage.m2sid.chat.Message" %>
+
 <%
     try {
         final Session sessionHibernate = HibernateUtil.currentSession();
