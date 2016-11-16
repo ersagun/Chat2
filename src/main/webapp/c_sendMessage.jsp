@@ -11,6 +11,7 @@
 <%@page import="java.util.List" %>
 <%@page import="org.hibernate.Transaction" %>
 <%@page import="org.miage.m2sid.chat.Message" %>
+
 <jsp:useBean id="message" scope="session" class="org.miage.m2sid.chat.Message" />
 <jsp:setProperty name="message" property="*" />
 <%

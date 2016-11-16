@@ -4,6 +4,7 @@
 <%@page import="org.hibernate.Session"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="org.miage.m2sid.chat.Abonne"%>
+
 <!DOCTYPE html>
 <html>
     <head>
