@@ -15,6 +15,7 @@
 
 <c:set var="typeAbonne" scope="session" value="${param.typeAbonne}" />
     <%
+        boolean connected=false;
         try {
             final Session sessionHibernate = HibernateUtil.currentSession();
             final Transaction transaction = sessionHibernate.beginTransaction();
@@ -25,7 +26,9 @@
                 query.setParameter("p_login",request.getParameter("login"));
                 query.setParameter("p_mdp",request.getParameter("mdp"));
                 List utilisateur = query.list();
-                session.setAttribute("user", utilisateur.get(0));
+                connected =! utilisateur.isEmpty();
+                if(connected)
+                    session.setAttribute("user", utilisateur.get(0));
                 transaction.commit();
             } catch (Exception ex) {
                 // Log the exception here
@@ -34,7 +37,14 @@
             }
         } finally {
             HibernateUtil.closeSession();
-            response.sendRedirect("c_getMessages.jsp");
+            if(connected)
+                response.sendRedirect("c_getMessages.jsp");
+            else {
+                request.setAttribute("erreur", "Le mot de passe ou login incorrecte !");
+                   RequestDispatcher rd = getServletContext().getRequestDispatcher("/v_erreur.jsp");
+                    rd.forward(request, response);
+                
+            }
         }
     %>
 
