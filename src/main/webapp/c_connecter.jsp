@@ -10,7 +10,7 @@
 <%@page import="org.hibernate.Session"%>
 <%@page import="java.util.List" %>
 <%@page import="org.hibernate.Transaction" %>
-<%@page import="org.miage.m2sid.chat.Particulier" %>
+<%@page import="org.miage.m2sid.chat.Particulier" %> 
 <%@page import="org.miage.m2sid.chat.Message" %>
      
 <c:set var="typeAbonne" scope="session" value="${param.typeAbonne}" />
