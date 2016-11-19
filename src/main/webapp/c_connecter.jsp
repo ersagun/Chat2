@@ -1,6 +1,6 @@
 <%-- 
     Document   : c_valideLogin
-    Created on : Sep 28, 2016, 2:13:19 PM
+    Created on : Sep 28, 2016, 1:12:18 PM
     Author     : Ersagun
 --%>
 
@@ -12,7 +12,7 @@
 <%@page import="org.hibernate.Transaction" %>
 <%@page import="org.miage.m2sid.chat.Particulier" %> 
 <%@page import="org.miage.m2sid.chat.Message" %>
-            
+
 <c:set var="typeAbonne" scope="session" value="${param.typeAbonne}" />
     <% 
         boolean connected=false;
