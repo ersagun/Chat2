@@ -12,9 +12,9 @@
 <%@page import="org.hibernate.Transaction" %>
 <%@page import="org.miage.m2sid.chat.Particulier" %>
 <%@page import="org.miage.m2sid.chat.Message" %>
-    
+     
 <c:set var="typeAbonne" scope="session" value="${param.typeAbonne}" />
-    <%
+    <% 
         boolean connected=false;
         try {
             final Session sessionHibernate = HibernateUtil.currentSession();
