@@ -22,7 +22,7 @@
                     </h3>
                     <div class="jumbotron well">
                         <h2>
-                            Une erreur s'est rencontrée 
+                            Erreur
                         </h2>
                         <p>
                             ${erreur}</p>
